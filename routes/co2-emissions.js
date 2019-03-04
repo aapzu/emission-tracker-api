@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
             year,
         } : {})
     }
-    const db = perCapita ? emissionsPcDb : emissionsDb
+    const db = (perCapita && perCapita !== 'false') ? emissionsPcDb : emissionsDb
     db.find(query, (err, result) => {
         res.json(result)
     })
