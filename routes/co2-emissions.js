@@ -1,17 +1,12 @@
 const express = require('express')
-const Datastore = require('nedb')
+const db = require('../db')
+
+const { emissionsDb, emissionsPcDb } = db
 
 const router = express.Router()
 
-const CO2_EMISSIONS_DB_PATH = 'co2_emissions.db'
-
-const db = new Datastore({
-    filename: CO2_EMISSIONS_DB_PATH,
-    autoload: true
-})
-
 router.get('/', (req, res) => {
-    const { country, year } = req.query
+    const { country, year, perCapita } = req.query
     const query = {
         ...(country ? {
             $or: [{
@@ -24,6 +19,7 @@ router.get('/', (req, res) => {
             year,
         } : {})
     }
+    const db = perCapita ? emissionsPcDb : emissionsDb
     db.find(query, (err, result) => {
         res.json(result)
     })

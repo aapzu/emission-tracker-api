@@ -1,0 +1,11 @@
+{
+  "emissionsDbPath": "db/emissions.db",
+  "emissionsApiUrl": "http://api.worldbank.org/v2/en/indicator/EN.ATM.CO2E.KT?downloadformat=xml",
+  "emissionsPcDbPath": "db/emissions_pc.db",
+  "emissionsPcApiUrl": "http://api.worldbank.org/v2/en/indicator/EN.ATM.CO2E.PC?downloadformat=xml",
+  "populationsDbPath": "db/populations.db",
+  "populationsApiUrl": "http://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=xml",
+  "countriesDbPath": "db/countries.db",
+  "countriesApiUrl": "http://api.worldbank.org/v2/country?format=json&per_page=500",
+  "downloadDataCronPattern": "* * * 1 1 *"
+}
